@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pac-Man Game</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        canvas {
+            border: 2px solid #00f;
+        }
+        #error-message {
+            color: red;
+            margin: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="error-message"></div>
+    <canvas id="gameCanvas" width="448" height="496"></canvas>
+    
+    <script>
+        window.onerror = function(msg, url, lineNo, columnNo, error) {
+            const errorDiv = document.getElementById('error-message');
+            errorDiv.innerHTML = `Error: ${msg}<br>File: ${url}<br>Line: ${lineNo}`;
+            console.error(msg, url, lineNo, columnNo, error);
+            return false;
+        };
+    </script>
+
+    <script src="constants.js"></script>
+    <script src="pacman.js"></script>
+    <script src="ghost.js"></script>
+    <script src="game.js"></script>
+</body>
+</html> 
